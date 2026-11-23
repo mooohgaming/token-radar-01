@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Token Radar — pre-token protocols ranked by implied value</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap topbar-in">
+    <a class="brand" href="#top"><span class="radar-dot" aria-hidden="true"></span><span>Token&nbsp;Radar</span></a>
+    <div class="topbar-meta" id="topbar-meta"></div>
+  </div>
+</header>
+
+<main class="wrap" id="top">
+  <section class="hero">
+    <p class="kicker">Pre-token radar · snapshot <span id="as-of">—</span></p>
+    <h1><span id="board-count">—</span> launch candidates,<br>ranked by implied value</h1>
+    <p class="lede">Every protocol on the snapshot's watchlist, plus every other standalone
+      protocol that records no token — scored by one transparent model from its
+      TVL, its seven-day growth and how long it has run with no token. Wrapped,
+      staked and bridged products are not ranked: they are someone else's token
+      in another wrapper. Implied value is a model, not a price.</p>
+    <div class="stats" id="stats"></div>
+  </section>
+
+  <section class="panel chart-panel" aria-label="Top of the board">
+    <div class="panel-head">
+      <h2>The top of the board</h2>
+      <p class="sub">Implied value of the eight strongest launch candidates.</p>
+    </div>
+    <div id="chart" class="chart"></div>
+  </section>
+
+  <section class="controls" aria-label="Board controls">
+    <div class="field grow">
+      <label for="q">Search</label>
+      <input type="search" id="q" placeholder="Search name, slug, category or chain" autocomplete="off">
+    </div>
+    <div class="field">
+      <label for="category">Category</label>
+      <select id="category"></select>
+    </div>
+    <div class="field">
+      <label for="chain">Chain</label>
+      <select id="chain"></select>
+    </div>
+    <div class="field check">
+      <label class="check-label"><input type="checkbox" id="watchlist-only"> Watchlist only</label>
+    </div>
+    <div class="field tabs" role="tablist" aria-label="Token status">
+      <button type="button" id="tab-pre" role="tab" aria-selected="true">Pre-token</button>
+      <button type="button" id="tab-live" role="tab" aria-selected="false">Live token</button>
+    </div>
+    <p class="count" id="count" aria-live="polite"></p>
+  </section>
+
+  <section class="panel table-panel" id="board">
+    <div class="table-wrap" id="table-wrap"></div>
+  </section>
+
+  <section class="panel model-panel" id="model-panel" aria-label="How the model scores"></section>
+
+  <footer class="foot">
+    <p>Source: DefiLlama protocol index, fetched <span id="source-date">—</span>. The board
+      ranks protocols that record no token; a protocol on it may still have a token its
+      DefiLlama record does not carry. Nothing here is investment advice, and no row
+      predicts whether or when a token is issued.</p>
+    <p class="foot-model" id="foot-model"></p>
+  </footer>
+</main>
+
+<aside class="drawer" id="drawer" aria-label="Protocol detail" hidden>
+  <div class="drawer-in" id="drawer-in"></div>
+</aside>
+<div class="scrim" id="scrim" hidden></div>
+
+<script src="../data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
